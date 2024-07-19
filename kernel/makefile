@@ -9,10 +9,10 @@ LDFLAGS := -T arch/$(ARCH)/linker.ld -ffreestanding -g -O2 -Iinclude --sysroot=$
 ASMFLAGS :=
 
 ifeq ($(ARCH),x86_64)
-CFLAGS += -mno-red-zone -mcmodel=kernel -mno-80387 -mno-sse -mno-sse2 -mno-mmx -fPIE
-CXXFLAGS += -mno-red-zone -mcmodel=kernel -mno-80387 -mno-sse -mno-sse2 -mno-mmx -fPIE
+CFLAGS += -mno-red-zone -mcmodel=kernel -mno-80387 -mno-sse -mno-sse2 -mno-mmx
+CXXFLAGS += -mno-red-zone -mcmodel=kernel -mno-80387 -mno-sse -mno-sse2 -mno-mmx
 LDFLAGS += -mno-red-zone -mcmodel=kernel -mno-80387 -mno-sse -mno-sse2 -mno-mmx \
-	-z max-page-size=0x1000 -pie
+	-z max-page-size=0x1000
 ASMFLAGS += -felf64
 endif
 
